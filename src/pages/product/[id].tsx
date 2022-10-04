@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/future/image";
+import Head from "next/head";
 import { useState } from "react";
 import Stripe from "stripe";
 import { stripe } from "../../lib/stripe";
@@ -41,6 +42,9 @@ export default function Product({ product }: ProductProps) {
 
   return (
     <ProductContainer>
+      <Head>
+        <title>Produto | {product.name}</title>
+      </Head>
       <ImageContainer>
         <Image src={product.imageUrl} width={520} height={480} alt="" />
       </ImageContainer>

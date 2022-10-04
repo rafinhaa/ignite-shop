@@ -9,6 +9,7 @@ import { HomeContainer, Product } from "../styles/pages/home";
 
 import "keen-slider/keen-slider.min.css";
 import Link from "next/link";
+import Head from "next/head";
 
 interface HomeProps {
   products: {
@@ -29,6 +30,9 @@ export default function Home({ products }: HomeProps) {
 
   return (
     <HomeContainer ref={sliderRef} className="keen-slider">
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
       {products.map((product) => (
         <Link key={product.id} href={`product/${product.id}`} prefetch={false}>
           <Product className="keen-slider__slide">
