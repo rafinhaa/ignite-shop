@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h4 align="center">
+<img src="docs/images/logo.svg" alt="Logo" />
+</h4>
 
-## Getting Started
+<h4 align="center">
+    <p align="center">
+      <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-how-to-run-the-project">Run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-info">Info</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <a href="#-license">License</a>
+  </p>
+</h4>
 
-First, run the development server:
+<h1 align="center">
+  <img style="border-radius: 10px" height="auto" alt="Screenshot" title="Screenshot" src="docs/images/screenshot.png" />
+</h1>
+
+## 🔖 About
+
+O **Ignite shop** é um projeto desenvolvido com NextJS.
+Com a finalidade aprender com conceitos de SSR e SSG.
+
+Com esse projeto é possível:
+
+- Consumir a API do Stripe;
+- Simular a venda de produto através do Stripe;
+- Listar produtos cadastrados no Stripe;
+
+O layout está disponível no [Figma](https://www.figma.com/file/OIJJEW24DFiJO6XLqHw2DM/Ignite-Shop/duplicate)
+
+## 🚀 Technologies
+
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextJS](https://nextjs.org/)
+- [Stitches](https://stitches.dev/)
+- [StripeAPI](https://stripe.com/docs/api)
+
+## 🏁 How to run the project
 
 ```bash
+# Clone the repository
+git clone https://github.com/rafinhaa/ignite-shop.git
+cd ignite-shop
+
+# Install the dependencies
+npm install
+
+# Copy dotenv file
+cp .env.example .env
+
+# Edit dotenv file
+vi .env.example .env
+
+# Start the application
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ℹ️ Info
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 📝 License
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[MIT](LICENSE)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Free Software, Hell Yeah!**
