@@ -36,6 +36,12 @@ export const Product = styled("a", {
     transform: "translateY(110%)",
     opacity: 0,
     transition: "all 0.2s ease-in-out",
+    div: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: 4,
+    },
     strong: {
       fontSize: "$lg",
       color: "$gray100",
