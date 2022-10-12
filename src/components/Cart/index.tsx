@@ -12,8 +12,17 @@ import {
 } from "./styles";
 import { CartButton } from "../CartButton";
 import Image from "next/future/image";
+import { useCart } from "../../hook/useCart";
 
 export function Cart() {
+  const { cartItems, quantityCartItems, totalCartPrice, removeCartItem } =
+    useCart();
+
+  const formattedTotalPrice = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(totalCartPrice);
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -29,32 +38,39 @@ export function Cart() {
           <h2>Sacola de compras</h2>
 
           <section>
-            <p>Parece que seu carrinho está vazio :(</p>
-            <CartProduct>
-              <CartProductImage>
-                <Image
-                  width={100}
-                  height={93}
-                  alt=""
-                  src="https://via.placeholder.com/100x93"
-                />
-              </CartProductImage>
-              <CartProductDetails>
-                <p>Produto 1</p>
-                <strong>R$ 50,99</strong>
-                <button>Remover</button>
-              </CartProductDetails>
-            </CartProduct>
+            {quantityCartItems === 0 ? (
+              <p>Parece que seu carrinho está vazio :(</p>
+            ) : (
+              cartItems.map((product) => (
+                <CartProduct key={product.id}>
+                  <CartProductImage>
+                    <Image
+                      width={100}
+                      height={93}
+                      alt={product.name}
+                      src={product.imageUrl}
+                    />
+                  </CartProductImage>
+                  <CartProductDetails>
+                    <p>{product.name}</p>
+                    <strong>{product.price}</strong>
+                    <button onClick={() => removeCartItem(product.id)}>
+                      Remover
+                    </button>
+                  </CartProductDetails>
+                </CartProduct>
+              ))
+            )}
           </section>
           <CartFinalization>
             <FinalizationDetails>
               <div>
                 <span>Quantidade</span>
-                <p>2 itens</p>
+                <p>{quantityCartItems} itens</p>
               </div>
               <div>
                 <span>Valor total</span>
-                <p>R$ 100,00</p>
+                <p>{formattedTotalPrice}</p>
               </div>
             </FinalizationDetails>
             <button>Finalizar compra</button>
