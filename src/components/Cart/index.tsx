@@ -13,15 +13,35 @@ import {
 import { CartButton } from "../CartButton";
 import Image from "next/future/image";
 import { useCart } from "../../hook/useCart";
+import { useState } from "react";
+import axios from "axios";
 
 export function Cart() {
   const { cartItems, quantityCartItems, totalCartPrice, removeCartItem } =
     useCart();
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false);
 
   const formattedTotalPrice = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
   }).format(totalCartPrice);
+
+  const handleCheckout = async () => {
+    try {
+      setIsCreatingCheckoutSession(false);
+      const {
+        data: { checkoutUrl },
+      } = await axios.post("/api/checkout", {
+        products: cartItems,
+      });
+
+      window.location.href = checkoutUrl;
+    } catch (error) {
+      setIsCreatingCheckoutSession(false);
+      alert("Falha ao redirecionar ao checkout!");
+    }
+  };
 
   return (
     <Dialog.Root>
@@ -73,7 +93,12 @@ export function Cart() {
                 <p>{formattedTotalPrice}</p>
               </div>
             </FinalizationDetails>
-            <button>Finalizar compra</button>
+            <button
+              onClick={handleCheckout}
+              disabled={isCreatingCheckoutSession}
+            >
+              Finalizar compra
+            </button>
           </CartFinalization>
         </CartContent>
       </Dialog.Portal>
