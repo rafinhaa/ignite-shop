@@ -60,6 +60,7 @@ npm run dev
 ## ℹ️ Info
 
 ## 📝 License
+[Detalhes](docs/about)
 
 [MIT](LICENSE)
 
