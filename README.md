@@ -62,6 +62,6 @@ npm run dev
 ## 📝 License
 [Detalhes](docs/about)
 
-[MIT](LICENSE)
+[MIT](https://choosealicense.com/licenses/mit/)
 
 **Free Software, Hell Yeah!**
